@@ -1,0 +1,45 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        const int gradesCount = 5;
+        int[] grades = new int[gradesCount];
+        int minGrade = 99999;
+        int sum = 0;
+        int maxGrade = 0;
+        double average;
+
+        for (int i = 0; i < gradesCount; i++)
+        {
+
+            Console.WriteLine($"Введите свои 5 чисел {i + 1}:");
+            grades[i] = Convert.ToInt32(Console.ReadLine());
+
+        }
+
+        foreach (int grade in grades)
+        {
+            sum += grade;
+            if (grade < minGrade)
+            {
+                minGrade = grade;
+
+            }
+            if (grade > maxGrade)
+            {
+                maxGrade = grade;
+            }
+        }
+
+       average = sum / grades.Length;
+
+        Console.WriteLine($"Минимальный балл: {minGrade}");
+        Console.WriteLine($"Максимальный балл: {maxGrade}");
+        Console.WriteLine($"Средняя оценка: {average}");
+    }
+
+}
