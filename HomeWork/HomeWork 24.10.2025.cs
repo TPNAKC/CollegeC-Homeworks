@@ -1,4 +1,4 @@
-﻿public class Program
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -25,7 +25,11 @@
         {
             Division(number1, number2);
         }
-        Console.ReadLine();
+        else
+        {
+            Print("Введите один из символов операции и попробуйте снова")
+        }
+            Console.ReadLine();
     }
     public static void Print(string s)
     {
@@ -51,7 +55,4 @@
         double opi = number / number2;
         Console.WriteLine($"Результат: {opi} ");
     }
-
-
-
 }
