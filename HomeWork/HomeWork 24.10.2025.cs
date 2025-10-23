@@ -4,8 +4,10 @@ public class Program
     {
         Print("Введите первое число: ");
         double number1 = Convert.ToDouble(Console.ReadLine());
+
         Print("Введите второе число: ");
         double number2 = Convert.ToDouble(Console.ReadLine());
+
         Print("Введите символ операции: ");
         char char1 = Convert.ToChar(Console.ReadLine());
 
@@ -56,3 +58,4 @@ public class Program
         Console.WriteLine($"Результат: {number} / {number2} = {opi} ");
     }
 }
+
