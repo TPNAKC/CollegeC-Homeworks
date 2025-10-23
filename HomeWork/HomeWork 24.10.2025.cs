@@ -27,7 +27,7 @@ public class Program
         }
         else
         {
-            Print("Введите один из символов операции и попробуйте снова")
+            Print("Введите один из символов операции и попробуйте снова");
         }
             Console.ReadLine();
     }
@@ -38,21 +38,22 @@ public class Program
     public static void Multiplication(double number, double number2)
     {
         double opi = number * number2;
-        Console.WriteLine($"Результат: {opi} ");
+        Console.WriteLine($"Результат: {number} * {number2} = {opi} ");
     }
     public static void Addition(double number, double number2)
     {
         double opi = number + number2;
-        Console.WriteLine($"Результат: {opi} ");
+        Console.WriteLine($"Результат: {number} + {number2} = {opi} ");
     }
     public static void Subtraction(double number, double number2)
     {
         double opi = number - number2;
-        Console.WriteLine($"Результат: {opi} ");
+        Console.WriteLine($"Результат: {number} - {number2} = {opi} ");
     }
     public static void Division(double number, double number2)
     {
         double opi = number / number2;
-        Console.WriteLine($"Результат: {opi} ");
+        Console.WriteLine($"Результат: {number} / {number2} = {opi} ");
     }
 }
+
