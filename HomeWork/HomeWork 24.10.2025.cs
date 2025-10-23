@@ -56,4 +56,3 @@ public class Program
         Console.WriteLine($"Результат: {number} / {number2} = {opi} ");
     }
 }
-
