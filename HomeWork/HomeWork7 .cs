@@ -26,8 +26,6 @@
         Print($"Высота: {number2.height}");
         Print($"Площадь: {number5}");
         Print($"Периметр: {number6}");
-
-
     }
     public static void Print(string s)
     {
