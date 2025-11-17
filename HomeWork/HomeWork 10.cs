@@ -13,9 +13,8 @@
         {
             string pair = rawPairs[i].Trim();
 
-            // Разделение по пробелам
             string[] parts = pair.Split(' ');
-            // Фильтрация пустых строк
+
             List<string> filteredParts = new List<string>();
             foreach (var p in parts)
             {
@@ -36,9 +35,9 @@
     {
         if (word.Length == 0)
             return word;
-        // Первая буква в верхнем регистре
+
         string firstChar = word[0].ToString().ToUpper();
-        // Остальные буквы в нижнем регистре
+
         string rest = "";
         for (int i = 1; i < word.Length; i++)
         {
@@ -46,4 +45,5 @@
         }
         return firstChar + rest;
     }
+
 }
