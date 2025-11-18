@@ -29,12 +29,12 @@ public class Student
     private int _age;
     public int Age
     {
-        get { return age; }
+        get { return _age; }
         set
         {
             if (value >= 6 && value <= 100)
             {
-                age = value;
+                _age = value;
             }
             else
             {
@@ -55,3 +55,4 @@ public class Student
         Console.WriteLine($"Полное Имя: {FullName}");
     }
 }
+
