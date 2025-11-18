@@ -38,7 +38,7 @@ public class Student
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Возраст должен быть в диапазоне от 6 до 100");
+              Console.WriteLine("Возраст должен быть в диапазоне от 6 до 100");
             }
         }
     }
@@ -54,5 +54,4 @@ public class Student
     {
         Console.WriteLine($"Полное Имя: {FullName}");
     }
-
 }
