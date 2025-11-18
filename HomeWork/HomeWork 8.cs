@@ -27,15 +27,20 @@ public class Student
     public string LastName { get; set; }
     
     private int _age;
-    public int Age {
+    public int Age
+    {
+        get { return age; }
         set
         {
-            if (value <= 0)
+            if (value >= 6 && value <= 100)
             {
-                Age = value;
+                age = value;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Возраст должен быть в диапазоне от 6 до 100");
             }
         }
-        get { return _age; }
     }
     public string FullName
     {
@@ -49,4 +54,5 @@ public class Student
     {
         Console.WriteLine($"Полное Имя: {FullName}");
     }
+
 }
