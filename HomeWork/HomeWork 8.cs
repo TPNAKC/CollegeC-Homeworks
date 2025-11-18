@@ -1,4 +1,4 @@
-﻿public class Program
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -16,7 +16,11 @@
 
         Console.WriteLine("--- Знакомство со студентами ---");
         student1.Introduce();
+        student1.Introduce2();
         student2.Introduce();
+        student2.Introduce2();
+
+
 
         Console.ReadLine();
     }
@@ -25,7 +29,7 @@ public class Student
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    
+
     private int _age;
     public int Age
     {
@@ -38,7 +42,7 @@ public class Student
             }
             else
             {
-              Console.WriteLine("Возраст должен быть в диапазоне от 6 до 100");
+                Console.WriteLine("Возраст должен быть в диапазоне от 6 до 100");
             }
         }
     }
@@ -50,9 +54,8 @@ public class Student
     {
         Console.WriteLine($"Привет, меня зовут {FirstName} {LastName}, мне {Age} лет.");
     }
-    public void Introduce2() 
+    public void Introduce2()
     {
         Console.WriteLine($"Полное Имя: {FullName}");
     }
 }
-
