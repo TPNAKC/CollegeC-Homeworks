@@ -13,6 +13,7 @@ class Program
         Console.WriteLine("3. Поиск книг");
         Console.WriteLine("4. Удаление книг");
         Console.WriteLine("5. Выход");
+
         // Объект с помощью которого мы можем использовать методы класса Library
         Library book = new Library();
         string choice = Convert.ToString(Console.ReadLine());
@@ -144,5 +145,4 @@ public class Book
     public string Title { get; set; }
     public string Author { get; set; }
     public int Year { get; set; }
-
 }
