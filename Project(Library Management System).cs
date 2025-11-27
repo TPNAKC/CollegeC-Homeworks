@@ -35,7 +35,7 @@ class Program
                 book.LibraryAndBooks();
                 break;
             case "3":
-                Console.WriteLine("По какому критерию вы бы хотели удалить книгу?");
+                Console.WriteLine("По какому критерию вы бы хотели найти книгу?");
                 Console.WriteLine("1. По названию");
                 Console.WriteLine("2. По автору");
                 string choice1 = Convert.ToString(Console.ReadLine());
@@ -146,3 +146,4 @@ public class Book
     public string Author { get; set; }
     public int Year { get; set; }
 }
+
