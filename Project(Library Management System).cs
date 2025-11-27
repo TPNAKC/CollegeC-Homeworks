@@ -137,8 +137,7 @@ public class Library
             Console.WriteLine("Книга не найдена.");
         }
     }
-}
-        
+}      
 public class Book
 {
     public int Id { get; set; }
@@ -146,4 +145,3 @@ public class Book
     public string Author { get; set; }
     public int Year { get; set; }
 }
-
