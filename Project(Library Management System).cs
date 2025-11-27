@@ -21,9 +21,12 @@ class Program
         switch (choice)
         {
             case "1":
-                Console.WriteLine("Напишите СНАЧАЛО название книги, автора и год книги:");
+                Console.WriteLine("Напишите название книги, автора и год книги:");
+                Console.WriteLine("Название:");
                 string title = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("Автор:");
                 string author = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("Год:");
                 int year = Convert.ToInt32(Console.ReadLine());
                 book.AddBook(title, author, year);
                 Console.WriteLine($"Книга добавлена! Название: {title}, Автор: {author}, Год: {year}");
@@ -145,3 +148,4 @@ public class Book
     public string Author { get; set; }
     public int Year { get; set; }
 }
+
