@@ -119,7 +119,7 @@ public class Library
     // Нахождение книги по названию 
     public void SearchByTitle(string title)
     {
-        var book = _books.FirstOrDefault(book => book.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        var book = _books.Where(book => book.Title == title).ToList();
         if (book != null)
         {
             Console.WriteLine($"Найдена книга: {book.Title} автор: {book.Author}");
@@ -133,7 +133,7 @@ public class Library
     public void SearchByAuthor(string author)
     {
         {
-            var results = _books.Where(b => b.Author.Equals(author, StringComparison.OrdinalIgnoreCase)).ToList();
+            var results = _books.Where(book => book.Author == author).ToList();
             if (results.Count > 0)
             {
                 foreach (var book in results)
@@ -168,4 +168,5 @@ public class Book
     public string Title { get; set; }
     public string Author { get; set; }
     public int Year { get; set; }
+
 }
