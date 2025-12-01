@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using static Library;
+using static System.Reflection.Metadata.BlobBuilder;
 class Program
 {
     public static void Main(string[] args)
@@ -11,16 +12,7 @@ class Program
         switch (choice)
         {
             case "1":
-                Console.WriteLine("Напишите название книги, автора и год книги:");
-                Console.WriteLine("Название:");
-                string title = Convert.ToString(Console.ReadLine());
-                Console.WriteLine("Автор:");
-                string author = Convert.ToString(Console.ReadLine());
-                Console.WriteLine("Год:");
-                int year = Convert.ToInt32(Console.ReadLine());
-                book.AddBook(title, author, year);
-                Console.WriteLine($"Книга добавлена! Название: {title}, Автор: {author}, Год: {year}");
-                book.ViewLibrary();
+                book.AddBook();
                 break;
             case "2":
                 book.LibraryAndBooks();
@@ -96,9 +88,13 @@ public class Library
     // Удаление книги по названию
     public void RemoveBook(int removeId)
     {
-        Library book = new Library();
-        Book Id = _books.Single(book => book.Id == removeId);
-        Console.WriteLine($"Id: {Id.Id}, Название: {Id.Title}, Автор: {Id.Author}, Год: {Id.Year} ");
+        int idToRemove = removeId;
+        Book bookToRemove = _books.FirstOrDefault(book => book.Id == idToRemove);
+
+        if (bookToRemove != null)
+        {
+            _books.Remove(bookToRemove);
+        }
     }
     // Меню
     public void ShowMenu()
@@ -162,7 +158,20 @@ public class Library
         book.RemoveBook(removeId);
         Console.WriteLine($"Книга удалена!");
         Console.ReadLine();
-        book.ViewLibrary();
+    }
+    public void AddBook()
+    {
+        Library book = new Library();
+
+        Console.WriteLine("Напишите название книги, автора и год книги:");
+        Console.WriteLine("Название:");
+        string title = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Автор:");
+        string author = Convert.ToString(Console.ReadLine());
+        Console.WriteLine("Год:");
+        int year = Convert.ToInt32(Console.ReadLine());
+        book.AddBook(title, author, year);
+        Console.WriteLine($"Книга добавлена! Название: {title}, Автор: {author}, Год: {year}");
     }
 }
 public class Book
