@@ -64,8 +64,15 @@ public class Library
     {
         if (title != null)
         {
-            Book Title = _books.Single(book => book.Title == title);
-            Console.WriteLine($"Id: {Title.Id}, Название: {Title.Title}, Автор: {Title.Author}, Год: {Title.Year} ");
+            try
+            {
+                Book Title = _books.Single(book => book.Title == title);
+                Console.WriteLine($"Id: {Title.Id}, Название: {Title.Title}, Автор: {Title.Author}, Год: {Title.Year} ");
+            }
+            catch (System.InvalidOperationException)
+            {
+                Console.WriteLine($"Ошибка: Введите только буквы.");
+            }
         }
         else
         {
@@ -77,12 +84,16 @@ public class Library
     {
         if (author != null)
         {
-            Book Author = _books.Single(book => book.Author == author);
-            Console.WriteLine($"Id: {Author.Id}, Название: {Author.Title}, Автор: {Author.Author}, Год: {Author.Year} ");
-        }
-        else
-        {
-            Console.WriteLine("Книга не найдена");
+            try
+            {
+                Book Author = _books.Single(book => book.Author == author); //System.InvalidOperationException
+                Console.WriteLine($"Id: {Author.Id}, Название: {Author.Title}, Автор: {Author.Author}, Год: {Author.Year} ");
+            }
+            catch (System.InvalidOperationException)
+            {
+                Console.WriteLine($"Ошибка: Такой книги нету.");
+                Console.ReadLine();
+            }
         }
     }
     // Удаление книги по названию
@@ -138,12 +149,12 @@ public class Library
         switch (choice1)
         {
             case "1":
-                Console.WriteLine("Напишите название книги:");
+                Console.WriteLine("Напишите название книги(Напишите без инициал, тоесть полностью.):");
                 string title1 = Convert.ToString(Console.ReadLine());
                 book.SearchByTitle(title1);
                 break;
             case "2":
-                Console.WriteLine("Напишите автора книги:");
+                Console.WriteLine("Напишите автора книги(Напишите без инициал, тоесть полностью.):");
                 string author1 = Convert.ToString(Console.ReadLine());
                 book.SearchByAuthor(author1);
                 break;
@@ -152,26 +163,40 @@ public class Library
     public void TextRemoveBook()
     {
         Library book = new Library();
-        Console.WriteLine("Какую книгу вы хотите удалить?");
-        Console.WriteLine("Напишите ID книги:");
-        int removeId = Convert.ToInt32(Console.ReadLine());
-        book.RemoveBook(removeId);
-        Console.WriteLine($"Книга удалена!");
-        Console.ReadLine();
+        try
+        {
+            Console.WriteLine("Какую книгу вы хотите удалить?"); //System.FormatException
+            Console.WriteLine("Напишите ID книги:");
+            int removeId = Convert.ToInt32(Console.ReadLine());
+            book.RemoveBook(removeId);
+            Console.WriteLine($"Книга удалена!");
+            Console.ReadLine();
+        }
+        catch (System.FormatException)
+        {
+            Console.WriteLine($"Ошибка: Введите только число.");
+            Console.ReadLine();
+        }
     }
     public void AddBook()
     {
-        Library book = new Library();
-
-        Console.WriteLine("Напишите название книги, автора и год книги:");
-        Console.WriteLine("Название:");
-        string title = Convert.ToString(Console.ReadLine());
-        Console.WriteLine("Автор:");
-        string author = Convert.ToString(Console.ReadLine());
-        Console.WriteLine("Год:");
-        int year = Convert.ToInt32(Console.ReadLine());
-        book.AddBook(title, author, year);
-        Console.WriteLine($"Книга добавлена! Название: {title}, Автор: {author}, Год: {year}");
+        try
+        {
+            Library book = new Library();
+            Console.WriteLine("Напишите название книги, автора и год книги:");
+            Console.WriteLine("Название:");
+            string title = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Автор:");
+            string author = Convert.ToString(Console.ReadLine()); // System.FormatException
+            Console.WriteLine("Год(Если год не известный, то впишите 0):");
+            int year = Convert.ToInt32(Console.ReadLine());
+            book.AddBook(title, author, year);
+            Console.WriteLine($"Книга добавлена! Название: {title}, Автор: {author}, Год: {year}");
+        }
+        catch (System.FormatException)
+        {
+            Console.WriteLine($"Оишбка: Вы сделали что-то не так.");
+        }
     }
 }
 public class Book
